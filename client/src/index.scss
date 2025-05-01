@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  // background-color: #161d25;
+}
+
+* {
+  font-family: "Inter", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+
+.container {
+    width: 1220px;
+    padding: 0 10px;
+    margin: 0 auto;
+}
+
+.all-pages {
+    margin-top: 120px;
+}
