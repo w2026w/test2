@@ -5,6 +5,7 @@ import RegisterPage from "./pages/RegisterPage/RegisterPage.jsx";
 import LoginPage from "./pages/LoginPage/LoginPage.jsx";
 import Home from "./pages/Home/Home.jsx";
 import NotFound from "./pages/NotFound.jsx";
+import Main from "./pages/Main/Main.jsx";
 
 import Layout from "./components/Layout.jsx";
 
@@ -27,6 +28,7 @@ function App() {
         <Route path="register" element={<RegisterPage />} />
         <Route path="login" element={<LoginPage />} />
         <Route path="home" element={<Home />} />
+        <Route path="main" element={<Main />} />
 
         <Route path="*" element={<NotFound />} />
 
