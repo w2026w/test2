@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
+import { clearCart } from "../../redux/features/cartSlice";
+
 import { logout } from "../../redux/features/authSlice";
 
 import {
@@ -31,6 +33,7 @@ function Header() {
 
   const logoutHandler = () => {
     dispatch(logout());
+    dispatch(clearCart());
     window.localStorage.removeItem("token");
     toast("Вы вышли из системы.");
     navigate("/");
