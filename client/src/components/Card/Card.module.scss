@@ -98,5 +98,22 @@
           background: #3e8e41;
         }
       }
+
+      .removeButton {
+        margin-top: auto;
+        width: 100%;
+        padding: 10px;
+        background: #af4c4c;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background 0.2s;
+        
+        &:hover {
+          background: #8e3e3e;
+        }
+      }
     }
   }

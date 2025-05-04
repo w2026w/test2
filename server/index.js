@@ -5,6 +5,7 @@ import cors from "cors";
 
 import authRoute from './routes/auth.js'
 import productRoute from './routes/product.js'
+import cartRoute from './routes/cart.js'
 
 const app = express();
 
@@ -24,6 +25,7 @@ app.use(express.static("uploads"));
 // Routes
 app.use("/api/auth", authRoute);
 app.use("/api/products", productRoute);
+app.use("/api/cart", cartRoute);
 
 async function start() {
   try {

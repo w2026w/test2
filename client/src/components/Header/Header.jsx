@@ -24,6 +24,7 @@ import { checkIsAuth } from "../../redux/features/authSlice";
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const isAuth = useSelector(checkIsAuth);
+  const { totalPrice } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const menuRef = React.useRef();
@@ -76,10 +77,11 @@ function Header() {
       </div>
       <div className={styles.headerRow}>
         <ul className={styles.headerRow}>
-          <li className={styles.headerRowLi}>
+          <Link to="/cart" className={styles.headerRowLi}>
             <MdShoppingCart className={styles.mr10} size={25} />
-            <span> руб.</span>
-          </li>
+            <span>{totalPrice} руб.</span>
+          </Link>
+
           <Link className={styles.link} to="/favorites">
             <li className={styles.headerRowFav}>
               <MdFavorite className={styles.mr10} size={25} />

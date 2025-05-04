@@ -22,5 +22,19 @@ a {
 }
 
 .all-pages {
-  margin-top: 120px;
+  margin-top: 200px;
+}
+
+.notFoundPage {
+  margin-top: 500px;
+  text-align: center;
+  button {
+    color: black;
+    cursor: pointer;
+  }
+}
+
+
+.profilePage {
+  text-align: center;
 }

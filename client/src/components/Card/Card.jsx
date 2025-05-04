@@ -3,9 +3,15 @@ import { useSelector } from "react-redux";
 import ContentLoader from "react-content-loader";
 import styles from "./Card.module.scss";
 
-function Card({ title, imageUrl, price }) {
+function Card({ id, title, imageUrl, price, loading, onPlus, isItemAdded }) {
   const { isLoading } = useSelector((state) => state.products);
-  
+
+  const onClickPlus = () => {
+    if (!loading) {
+      onPlus({ id, title, imageUrl, price });
+    }
+  };
+
   return (
     <div className={styles.card}>
       {isLoading ? (
@@ -29,7 +35,12 @@ function Card({ title, imageUrl, price }) {
             <img src={imageUrl} alt={title} className={styles.productImage} />
             <button className={styles.wishlistButton}>
               <svg width="20" height="18" viewBox="0 0 20 18" fill="none">
-                <path d="M10 1.61804C12.0557 -0.077496 15.061 -0.538924 17.5538 1.61804C20.0466 3.775 20.3705 7.37603 18.2466 9.88235L10 18L1.75338 9.88235C-0.370545 7.37603 -0.0466236 3.775 2.44622 1.61804C4.93906 -0.538924 7.94435 -0.077496 10 1.61804Z" fill="white" stroke="#D1D5DB" strokeWidth="1.5"/>
+                <path
+                  d="M10 1.61804C12.0557 -0.077496 15.061 -0.538924 17.5538 1.61804C20.0466 3.775 20.3705 7.37603 18.2466 9.88235L10 18L1.75338 9.88235C-0.370545 7.37603 -0.0466236 3.775 2.44622 1.61804C4.93906 -0.538924 7.94435 -0.077496 10 1.61804Z"
+                  fill="white"
+                  stroke="#D1D5DB"
+                  strokeWidth="1.5"
+                />
               </svg>
             </button>
           </div>
@@ -39,7 +50,15 @@ function Card({ title, imageUrl, price }) {
               <span className={styles.priceLabel}>Цена:</span>
               <span className={styles.priceValue}>{price} руб.</span>
             </div>
-            <button className={styles.addButton}>Добавить в корзину</button>
+            {isItemAdded ? (
+              <button onClick={onClickPlus} className={styles.removeButton}>
+                Удалить из корзины
+              </button>
+            ) : (
+              <button onClick={onClickPlus} className={styles.addButton}>
+                Добавить в корзину
+              </button>
+            )}
           </div>
         </>
       )}

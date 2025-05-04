@@ -1,4 +1,5 @@
 import User from "../models/User.js";
+import Cart from "../models/Cart.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
@@ -26,6 +27,9 @@ export const register = async (req, res) => {
     });
 
     await newUser.save();
+
+    const cart = new Cart({ user: newUser._id, products: [] });
+    await cart.save();
 
     res.json({
       user: newUser,
