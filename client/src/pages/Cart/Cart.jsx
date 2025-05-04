@@ -5,7 +5,7 @@ import config from "../../utils/config";
 
 import styles from "./Cart.module.scss";
 
-function Order() {
+function Cart() {
   const { cart } = useSelector((state) => state.cart);
   const { totalPrice } = useSelector((state) => state.cart);
 
@@ -74,4 +74,4 @@ function Order() {
   );
 }
 
-export default Order;
+export default Cart;
